@@ -4,7 +4,7 @@ function AddTaskForm(props){
     return (
         <div className='newTask'>
             <input type="text" value={props.val} onChange={props.onChange}/>
-            <button onClick={props.onClick}>Add</button>
+            <button onClick={props.onClick}><i className="fab fa-telegram-plane"/></button>
         </div>
     );
 }

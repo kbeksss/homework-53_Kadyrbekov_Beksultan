@@ -4,7 +4,7 @@ function Task(props) {
     return(
         <div className='tasks'>
             <p>{props.text}</p>
-            <button className='btn-remove' onClick={props.onRemove}>remove</button>
+            <button className='btn-remove' onClick={props.onRemove}><i className="fas fa-trash-alt"/></button>
         </div>
     );
 }
