@@ -4,7 +4,7 @@ function Task(props) {
     return(
         <div className='tasks'>
             <p>{props.text}</p>
-            <button className='btn-remove'>{props.value}</button>
+            <button className='btn-remove'>remove</button>
         </div>
     );
 }

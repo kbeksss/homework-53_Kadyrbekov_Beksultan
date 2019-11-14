@@ -1,31 +1,39 @@
 import React, {Component} from 'react';
-import './App.css';
+import nanoid from 'nanoid'
+
 import AddTaskForm from "./Components/AddTaskForm/AddTaskForm";
 import Task from "./Components/Task/Task";
 
+import './App.css';
+
 class App extends Component {
   state = {
-    newTask: 'this is trial message',
+    currentTask: 'this is a trial message',
     tasks: [
-      {message: 'hello, its me', id: '1'},
-      {message: 'hello, iafd', id: '2'},
-      {message: 'hello, agg', id: '3'},
-      {message: 'hello, safaf', id: '4'},
+      {message: 'This is the first task', id: nanoid()},
+      {message: 'This is the second task', id: nanoid()},
+      {message: 'This is the third task', id: nanoid()},
+      {message: 'This is the fourth task', id: nanoid()},
     ],
   };
   changeMessage = (event) => {
-    let newTask = event.target.value;
-    this.setState({newTask});
+    let currentTask = event.target.value;
+    this.setState({currentTask});
   };
   addMessage = () => {
-
+    let message = this.state.currentTask;
+    let currentTask = {message, id: nanoid()};
+    let tasks = [...this.state.tasks];
+    tasks.push(currentTask);
+    this.setState({tasks});
   };
   render() {
     return (
         <div className="App">
           <AddTaskForm
-              val={this.state.newTask}
+              val={this.state.currentTask}
               onChange={(event) => this.changeMessage(event)}
+              onClick={this.addMessage}
           />
           {this.state.tasks.map(task => (
               <Task key={task.id} text={task.message}/>
