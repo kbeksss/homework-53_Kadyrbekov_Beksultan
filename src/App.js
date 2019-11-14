@@ -21,9 +21,9 @@ class App extends Component {
     this.setState({currentTask});
   };
   addNewTask = () => {
-    let message = this.state.currentTask;
-    let currentTask = {message, id: nanoid()};
-    let tasks = [...this.state.tasks];
+    const message = this.state.currentTask;
+    const currentTask = {message, id: nanoid()};
+    const tasks = [...this.state.tasks];
     tasks.push(currentTask);
     this.setState({tasks});
   };
