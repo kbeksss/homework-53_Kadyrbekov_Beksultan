@@ -2,5 +2,15 @@
     margin-top: 10px;
 }
 .newTask input{
-    padding: 5px 10px;
+    padding: 10px;
+    background: #636363;
+    color: #fff;
+    font-size: 17px;
+}
+.newTask button{
+    font-size: 16px;
+    background: #636363;
+    color: #fff;
+    margin-left: 10px;
+    padding: 10px 15px 10px;
 }
