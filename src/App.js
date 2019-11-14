@@ -20,23 +20,34 @@ class App extends Component {
     let currentTask = event.target.value;
     this.setState({currentTask});
   };
-  addMessage = () => {
+  addNewTask = () => {
     let message = this.state.currentTask;
     let currentTask = {message, id: nanoid()};
     let tasks = [...this.state.tasks];
     tasks.push(currentTask);
     this.setState({tasks});
   };
+  deleteTask = (id) => {
+    const index = this.state.tasks.findIndex(t => t.id === id);
+    const tasks = [...this.state.tasks];
+    tasks.splice(index, 1);
+    this.setState({tasks});
+  };
+
   render() {
     return (
         <div className="App">
           <AddTaskForm
               val={this.state.currentTask}
               onChange={(event) => this.changeMessage(event)}
-              onClick={this.addMessage}
+              onClick={this.addNewTask}
           />
           {this.state.tasks.map(task => (
-              <Task key={task.id} text={task.message}/>
+              <Task
+                  key={task.id}
+                  text={task.message}
+                  onRemove={() =>this.deleteTask(task.id)}
+              />
           ))}
         </div>
     );
